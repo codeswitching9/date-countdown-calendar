@@ -1,5 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>The Final Countdown</title>
+        <link rel="stylesheet" href="src/styles.css" />
+    </head>
     <body>
-        
+        <h1 id="time-left">Select your date</h1>
+        <div>
+            <input type="date" id="myDate">
+        </div>
+        <div>
+            <button id="start">Start</button>
+        </div>
+
+        <!-- countdown widget -->
+        <div class="until" id="myCountdown">
+            <div class="until__component">
+                <div class="until__numeric until__numeric--days">00</div>
+                <div class="until__unit">Days</div>
+            </div>
+            <div class="until__component">
+                <div class="until__numeric until__numeric--hours">00</div>
+                <div class="until__unit">Hours</div>
+            </div>
+            <div class="until__component">
+                <div class="until__numeric until__numeric--minutes">00</div>
+                <div class="until__unit">Minutes</div>
+            </div>
+            <div class="until__component">
+                <div class="until__numeric until__numeric--seconds">00</div>
+                <div class="until__unit">Seconds</div>
+            </div>
+        </div>
+        <script src="app.js"></script>
     </body>
 </html>
