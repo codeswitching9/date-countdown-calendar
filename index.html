@@ -6,9 +6,14 @@
         <link rel="stylesheet" href="src/styles.css" />
     </head>
     <body onload="setMinTomorrow()">
-            <label>Date of your event: <input type="date" id="eventDate" required></label><br>
-            <button id="startBtn">Start Countdown</button>
+        <h1 id="countdownHead">The Final Countdown</h1>
+        <!-- user input for countdown -->
+        <div class="userCountdownInput">
+            <label>Date of your event: <input type="date" id="eventDate" required></label>
+            <p></p>
+            <button id="startBtn">START</button>
             <button id="clearBtn">CLEAR</button>
+        </div>
 
         <!-- countdown widget -->
         <div class="until" id="eventCountdown">
