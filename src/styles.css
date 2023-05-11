@@ -11,27 +11,27 @@
     font-family: sans-serif;
 }
 
-.until__component {
+.until-component {
     text-align: center;
     background: white;
     border-radius: 5px;
 }
 
-.until__numeric {
+.until-numeric {
     color: darkslategrey;
     padding: 0.5em 0;
     font-size: 3em;
     font-weight: bold;
 }
 
-.until__unit {
+.until-unit {
     font-size: 1.2em;
     padding-bottom: 1em;
     font-weight: bold;
     color: darkred;
 }
 
-.until__event {
+.until-event {
     grid-column: span 4;
     text-align: center;
     color: white;

@@ -1,27 +1,88 @@
-dayjs.extend(dayjs_plugin_duration);
+//variables
+let startBtn = document.getElementById("startBtn");
+let clearBtn = document.getElementById("clearBtn");
+let eventDate = document.getElementById("eventDate");
 
-function activateCountdown(element, dateString) {
-    const targetDate = dayjs(dateString);
+let dayTxt = document.getElementById("until-numeric-days"); 
+let hourTxt = document.getElementById("until-numeric-hours"); 
+let minuteTxt = document.getElementById("until-numeric-minutes");  
+let secondTxt = document.getElementById("until-numeric-seconds");
 
-    element.querySelector(".until__event").textContent = `Until ${targetDate.format("MMMM D YYYY")}`;
+let tomorrow;
+let counter;
 
-    // function calculates difference between now and target date
-    setInterval(() => {
-        const now = dayjs();
-        // .diff method calculates difference in times
-        // creating a duration object of the amount of time
-        const duration = dayjs.duration(targetDate.diff(now));
+function setMinTomorrow() {
+    let today = new Date();
+    let dd = today.getDate()+1; // + tomorrow
+    let mm = today.getMonth(); // January is 0
+    let yyyy = today.getFullYear();
 
-        if (duration.asMilliseconds() <= 0) return;
+    tomorrow = yyyy + "-" + checkZero(mm) + "-" +checkZero(dd);
+    eventDate.setAttribute("min", tomorrow);
 
-        // padStart method ensures two digit number like "01" instead of "1"; first parameter is number of max length then second is the "filler number"
-        element.querySelector(".until__numeric--seconds").textContent = duration.seconds().toString().padStart(2, "0");
-        element.querySelector(".until__numeric--minutes").textContent = duration.minutes().toString().padStart(2, "0");
-        element.querySelector(".until__numeric--hours").textContent = duration.hours().toString().padStart(2, "0");
-        element.querySelector(".until__numeric--days").textContent = duration.asDays().toFixed(0).toString().padStart(2, "0");
-
-        // updating every quarter of a second (250 ms)
-    }, 250);
+    startBtn.addEventListener("click", startCounting);
+    clearBtn.disabled = true;
 }
 
-activateCountdown(document.getElementById("myCountdown"), "2023-12-31");
+function checkZero(i) {
+    if(i<10) {
+        i="0"+i;
+    }
+    return i;
+}
+
+function startCounting() {
+    let findDate = eventDate.value;
+    if(findDate == "") {
+        demo.innerHTML = "Choose date!";
+        return false;
+    }
+    else {
+        demo.innerHTML = "";
+        startBtn.disabled = true;
+        clearBtn.disabled = false;
+        clearBtn.addEventListener("click", clearAll)
+    }
+            let findDx = findDate.split("-");
+            let year = findDx[0];
+            let month = findDx[1];
+            let day = findDx[2];
+        
+        let deadlineDate = month + " " + day + ", " + year + " 00:00:00";
+        let deadline = new Date(deadlineDate).getTime();
+    
+    counter = setInterval(function() {
+        let now = new Date().getTime();
+
+        let t = deadline - now;
+
+        let days = Math.floor(t / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((t % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+        let minutes = Math.floor((t % (1000 * 60 * 60))/(1000 * 60));
+        let seconds = Math.floor((t % (1000 * 60))/(1000));
+
+        dayTxt.innerHTML = days;
+        hourTxt.innerHTML = hours;
+        minuteTxt.innerHTML = minutes;
+        secondTxt.innerHTML = seconds;
+
+        if (t < 0) {
+            clearInterval(counter);
+            demo.innerHTML = "Event is here!";
+            dayTxt.innerHTML = '0';
+            hourTxt.innerHTML = '0';
+            minuteTxt.innerHTML = '0';
+            secondTxt.innerHTML = '0';
+        }
+    }, 1000);
+}
+
+function clearAll() {
+    clearInterval(counter);
+    dayTxt.innerHTML = "";
+    hourTxt.innerHTML = "";
+    minuteTxt.innerHTML = "";
+    secondTxt.innerHTML = "";
+    clearBtn.disabled = true;
+    startBtn.disabled = false;
+}

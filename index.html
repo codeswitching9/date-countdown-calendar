@@ -5,33 +5,32 @@
         <title>The Final Countdown</title>
         <link rel="stylesheet" href="src/styles.css" />
     </head>
-    <body>
-        <!-- <form action="D:\coding-and-programming-things\date-countdown-calendar\date-countdown-calendar\countdown-started.html" method="post">
-            <label>Your name: <input type="text" name="userName"></label><br>
-            <label>Name of your event: <input type="text" name="eventName"></label><br>
-            <label>Date of your event: <input type="date" name="eventDate"></label><br>
-            <button id="start" type="submit">Start Countdown</button>
-        </form> -->
+    <body onload="setMinTomorrow()">
+            <label>Date of your event: <input type="date" id="eventDate" required></label><br>
+            <button id="startBtn">Start Countdown</button>
+            <button id="clearBtn">CLEAR</button>
 
         <!-- countdown widget -->
-        <div class="until" id="myCountdown">
-            <div class="until__component">
-                <div class="until__numeric until__numeric--days">00</div>
-                <div class="until__unit">Days</div>
+        <div class="until" id="eventCountdown">
+            <div class="until-component">
+                <div class="until-numeric" id="until-numeric-days">00</div>
+                <div class="until-unit">Days</div>
             </div>
-            <div class="until__component">
-                <div class="until__numeric until__numeric--hours">00</div>
-                <div class="until__unit">Hours</div>
+            <div class="until-component">
+                <div class="until-numeric" id="until-numeric-hours">00</div>
+                <div class="until-unit">Hours</div>
             </div>
-            <div class="until__component">
-                <div class="until__numeric until__numeric--minutes">00</div>
-                <div class="until__unit">Minutes</div>
+            <div class="until-component">
+                <div class="until-numeric" id="until-numeric-minutes">00</div>
+                <div class="until-unit">Minutes</div>
             </div>
-            <div class="until__component">
-                <div class="until__numeric until__numeric--seconds">00</div>
-                <div class="until__unit">Seconds</div>
+            <div class="until-component">
+                <div class="until-numeric" id="until-numeric-seconds">00</div>
+                <div class="until-unit">Seconds</div>
             </div>
         </div>
         <script src="src/app.js"></script>
+
+        <p id="demo"></p>
     </body>
 </html>
