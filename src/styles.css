@@ -3,6 +3,10 @@ h1 {
     font-family: sans-serif;
 }
 
+#center {
+    margin: auto;
+}
+
 .userCountdownInput {
     margin-left: 25px;
     max-width: 400px;

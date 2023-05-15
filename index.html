@@ -7,8 +7,9 @@
     </head>
     <body onload="setMinTomorrow()">
         <h1 id="countdownHead">The Final Countdown</h1>
+/
         <!-- user input for countdown -->
-        <div class="userCountdownInput">
+        <div class="userCountdownInput" id="center">
             <label>Date of your event: <input type="date" id="eventDate" required></label>
             <p></p>
             <button class="button button:hover" id="startBtn">START</button>
@@ -18,7 +19,7 @@
         <p id="demo"></p>
 
         <!-- countdown widget -->
-        <div class="until" id="eventCountdown">
+        <div class="until" id="center">
             <div class="until-component">
                 <div class="until-numeric" id="until-numeric-days">00</div>
                 <div class="until-unit">Days</div>
