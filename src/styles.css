@@ -42,9 +42,10 @@ input[type="date"] {
 
 /* alert/error */
 #demo {
+    text-align: center;
     margin: 25px;
     font-family: sans-serif;
-    font-size: 2em;
+    font-size: 1em;
 }
 
 /* countdown widget */
