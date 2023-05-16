@@ -31,6 +31,7 @@ function checkZero(i) {
     return i;
 }
 
+// starts countdown
 function startCounting() {
     let findDate = eventDate.value;
     if(findDate == "") {
@@ -50,7 +51,8 @@ function startCounting() {
         
         let deadlineDate = month + " " + day + ", " + year + " 00:00:00";
         let deadline = new Date(deadlineDate).getTime();
-    
+
+    // calculates countdown
     counter = setInterval(function() {
         let now = new Date().getTime();
 
@@ -73,10 +75,13 @@ function startCounting() {
             hourTxt.innerHTML = '0';
             minuteTxt.innerHTML = '0';
             secondTxt.innerHTML = '0';
+        } else {
+            eventNameCountdownMessage.innerHTML = `until ${eventName.value}`;
         }
     }, 1000);
 }
 
+// clears countdown when button is clicked
 function clearAll() {
     clearInterval(counter);
     dayTxt.innerHTML = "";
