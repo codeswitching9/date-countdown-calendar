@@ -84,10 +84,10 @@ function startCounting() {
 // clears countdown when button is clicked
 function clearAll() {
     clearInterval(counter);
-    dayTxt.innerHTML = "";
-    hourTxt.innerHTML = "";
-    minuteTxt.innerHTML = "";
-    secondTxt.innerHTML = "";
+    dayTxt.innerHTML = "00";
+    hourTxt.innerHTML = "00";
+    minuteTxt.innerHTML = "00";
+    secondTxt.innerHTML = "00";
     eventNameCountdownMessage.innerHTML = "";
     clearBtn.disabled = true;
     startBtn.disabled = false;
