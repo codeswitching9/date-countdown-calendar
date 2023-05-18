@@ -70,7 +70,7 @@ function startCounting() {
 
         if (t < 0) {
             clearInterval(counter);
-            demo.innerHTML = "Event is here!";
+            demo.innerHTML = `${eventName.value} is here!`;
             dayTxt.innerHTML = '0';
             hourTxt.innerHTML = '0';
             minuteTxt.innerHTML = '0';
@@ -88,6 +88,7 @@ function clearAll() {
     hourTxt.innerHTML = "";
     minuteTxt.innerHTML = "";
     secondTxt.innerHTML = "";
+    eventNameCountdownMessage.innerHTML = "";
     clearBtn.disabled = true;
     startBtn.disabled = false;
 }

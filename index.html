@@ -9,13 +9,21 @@
         <h1 id="countdownHead">The Final Countdown</h1>
 /
         <!-- user input for countdown -->
-        <div class="userCountdownInput" id="center">
-            <label>Name of your event: <input type="text" id="eventName" required></label><br>
-            <label>Date of your event: <input type="date" id="eventDate" required></label>
-            <p></p>
-            <button class="button button:hover" id="startBtn">START</button>
-            <button class="button button:hover" id="clearBtn">CLEAR</button>
+        <div class="userCountdownInput row">
+            <div class ="col">
+                <label>Name of your event: <input type="text" class="form-control" id="eventName" required></label>
+            </div>
+            <div class ="col">
+                <label>Date of your event: <input type="date" class="form-control" id="eventDate" required></label>
+            </div>
         </div>
+        <p></p>
+        <div>
+        <!-- <div class="userCountdownInput"> -->
+                <button class="button button:hover" id="startBtn">START</button>
+                <button class="button button:hover" id="clearBtn">CLEAR</button>
+        </div>
+
 
         <p id="demo"></p>
 
